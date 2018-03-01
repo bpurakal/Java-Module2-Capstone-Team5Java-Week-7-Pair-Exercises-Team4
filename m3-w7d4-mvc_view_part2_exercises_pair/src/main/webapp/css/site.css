@@ -56,3 +56,122 @@ section {
 	background-color: #FFF;
 	border-radius: 7px;
 }
+
+
+/* ------ recipe tile ------------ */ 
+.main-title {
+	font-weight: 400;
+	font-size: 36px;
+	padding: 10px 0 30px 0;
+	margin: 0;
+}
+
+.recipe-tile {
+	width: 30%;
+	display: inline-block;
+	background-color: rgba(237,245,219,1);
+	margin:0 1% 20px 1%;
+	
+}
+@media only screen and (max-width: 767px) {
+	.recipe-tile {
+	width: 80%;
+	margin:20px ;
+	
+	}
+}
+.recipe-tile .content{
+	padding:0 20px;
+}
+.recipe-tile img {
+	width: 100%;
+}
+.recipe-title {
+	min-height: 60px;
+}
+.recipe-title {
+	font-weight: 400;
+	font-size: 21px;
+	padding: 0;
+	margin: 0;
+}
+.bottom-content {
+	min-height: 24px;
+	width: 100%;
+}
+.bottom-content .left, .bottom-content .right {
+	width:45%;
+	display: inline-block;
+	padding-bottom:20px
+}
+
+.bottom-content .left {
+	text-align: left;
+}
+.bottom-content .left img {
+	max-width:100px;
+}
+.bottom-content .right {
+	text-align: right;
+}
+
+/* ------ recipe table ------------ */
+
+ .table-main .main-title {
+	margin-right:-90px;
+}
+
+ .table-main {
+	padding-right:90px;
+}
+#main-content table{
+	width: 100% !important;
+	border: none;
+}
+#main-content table img {
+	max-width:50%;
+}
+#main-content table tr {
+	vertical-align: center;
+}
+#main-content table tr th{
+	width:15%;
+	padding: 0px;
+	background-color: white;
+}
+#main-content table tr td {
+	padding: 0px;
+}
+
+#main-content table tr:nth-child(even) {
+	background-color:rgba(205,205,205,1);
+}
+
+/* ------ individual detail view ------------ */
+.detail-view {
+	padding: 20px;
+	text-align:left;
+}
+.detail-view img {
+	max-width:280px;
+	display: inline-block;
+}
+.detail-view .image-wrap{
+	display:inline-block;
+	width:auto;
+}
+.detail-view  .descriptive-text {
+	display: inline-block;
+	width:60%;
+	vertical-align: top;
+	padding-left:20px;
+	
+}
+.detail-view  .descriptive-text p, .detail-view  .descriptive-text h1 {
+	padding:0px;
+	margin:0;
+}
+.detail-view  .descriptive-text .cook {
+	padding:10px 0 ;
+}
+

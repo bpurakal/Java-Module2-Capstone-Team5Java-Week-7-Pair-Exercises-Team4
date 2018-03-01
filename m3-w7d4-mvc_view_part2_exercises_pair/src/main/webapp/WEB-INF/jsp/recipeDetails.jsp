@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Recipe List View</title>
+    <title>Recipe Table View</title>
     <c:url var="stylesheetUrl" value="/css/site.css" />
     <link rel="stylesheet" href="${stylesheetUrl}" />
 </head>
@@ -22,18 +22,51 @@
         </ul>
         
     </nav>
-    <section id="main-content">
-    <h2 class="main-title">Recipes</h2>
-
-		<c:forEach var="recipe" items="${recipes}">
+    <section id="main-content" class="detail-view">
+    <div class="description">
+    				<div class="image-wrap">
+    				<c:url var="recipeImageUrl"
+					value="/img/recipe${recipe.getRecipeId()}.jpg" />
+				<img src="${recipeImageUrl}" class="recipe-image">
+				</div>
+    		<div class="descriptive-text">
+		<h1><c:out value="${recipe.name }" /></h1>
+		<p><c:out value="${recipe.getRecipeType() }" /></p>
+		<p class="cook"><strong>Cook Time</strong> <c:out value="${recipe.getCookTimeInMinutes() }" /></p>
+		<p><c:out value="${recipe.getDescription() }" /></p>
+		</div>
+		</div>
+		
+		
+		<p><strong>Ingredients</strong></p>
+		<ul>
+		
+		<c:forEach var="ingredient" items="${recipe.getIngredients()}">
+		<li><c:out value="${ingredient.getQuantity()}" /> <c:out value="${ingredient.getName()}" />
+		</li>
+		</c:forEach>
+		
+		</ul>
+		<hr />
+		
+		<p><strong>Preperation</strong></p>
+		<ol>
+		
+		<c:forEach var="step" items="${recipe.getPreparationSteps()}">
+		<li><c:out value="${step}" />
+		</li>
+		</c:forEach>
+		
+		</ol>
+       <!-- Use the request attribute "recipes" (List<Recipe>) -->
+       
+       
+       
+       <c:forEach var="recipe" items="${recipes}">
 			<div class="recipe-tile">
-			<c:url var="linkUrl"
-				value="/recipeDetails?recipeId=${recipe.getRecipeId()}" />
-				<a href="${linkUrl }">
 				<c:url var="recipeImageUrl"
 					value="/img/recipe${recipe.getRecipeId()}.jpg" />
 				<img src="${recipeImageUrl}" class="recipe-image">
-				</a>
 				<div class="content">
 				
 						<h4 class="recipe-title">
@@ -88,8 +121,6 @@
 			</div>
 
 		</c:forEach>
-
-		<!-- Use the request attribute "recipes" (List<Recipe>) -->
 
     </section>
 </body>
