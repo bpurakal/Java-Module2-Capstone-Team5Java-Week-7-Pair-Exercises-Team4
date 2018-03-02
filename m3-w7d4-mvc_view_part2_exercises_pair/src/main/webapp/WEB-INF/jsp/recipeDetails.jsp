@@ -1,28 +1,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Recipe Table View</title>
-    <c:url var="stylesheetUrl" value="/css/site.css" />
-    <link rel="stylesheet" href="${stylesheetUrl}" />
-</head>
-<body>
-    <header>
-        <h1>MVC Exercises - Views Part 2: Models</h1>        
-    </header>
-    <nav>
-        <ul>
-            <c:url var="recipeTilesUrl" value="/recipeTiles" />
-            <li><a href="${recipeTilesUrl}">Tile Layout</a></li>
-            <c:url var="recipeTableUrl" value="/recipeTable" />
-            <li><a href="${recipeTableUrl}">Table Layout</a></li>
-        </ul>
-        
-    </nav>
-    <section id="main-content" class="detail-view">
+<c:set var="pageTitle" value="Recipe Detail View" />
+<%@ include file="common/header.jspf" %>    	
+  
+  <div class ="detail-view">  	
     <div class="description">
     				<div class="image-wrap">
     				<c:url var="recipeImageUrl"
@@ -49,7 +30,7 @@
 		</ul>
 		<hr />
 		
-		<p><strong>Preperation</strong></p>
+		<p><strong>Preparation</strong></p>
 		<ol>
 		
 		<c:forEach var="step" items="${recipe.getPreparationSteps()}">
@@ -121,7 +102,5 @@
 			</div>
 
 		</c:forEach>
-
-    </section>
-</body>
-</html>
+	</div>
+<%@ include file="common/footer.jspf" %>
